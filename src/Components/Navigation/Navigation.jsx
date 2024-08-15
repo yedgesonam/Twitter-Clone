@@ -1,10 +1,24 @@
 import React from 'react';
 import { navigationMenu } from "./NavigationMenu";
 import { useNavigate } from "react-router-dom";
-import {Avatar, Button} from "@mui/material";
+import {Avatar, Button, Menu, MenuItem} from "@mui/material";
+import { MoreHoriz as MoreHorizIcon } from '@mui/icons-material';
+
 
 const Navigation = () => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     const navigate = useNavigate();
+    const handleLogout = () =>{
+        console.log("logout")
+        handleClose()
+    }
     return (
         <div className='h-screen sticky top-0'>
             <div>
@@ -50,6 +64,26 @@ const Navigation = () => {
                         <span className='inline-block'>Sonam Yedge</span>
                         <span className='opacity-70'>@sonamyedge</span>
                     </div>
+                    <Button
+                        id="basic-button"
+                        aria-controls={open ? 'basic-menu' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                    >
+                        <MoreHorizIcon/>
+                    </Button>
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                        }}
+                    >
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                    </Menu>
                 </div>
 
             </div>

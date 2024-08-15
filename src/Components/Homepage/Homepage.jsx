@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography } from "@mui/material";
 import Navigation from "../Navigation/Navigation";
+import HomeSection from "../HomeSection/HomeSection";
 
 
 
@@ -11,7 +12,7 @@ const Homepage = () => {
                 <Navigation/>
             </Grid>
             <Grid item xs={12} lg={8} style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
-                <Typography>middle part</Typography>
+                <HomeSection/>
             </Grid>
             <Grid item xs={false} lg={2} style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
                 <Typography>right part</Typography>

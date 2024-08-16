@@ -77,7 +77,9 @@ setUpLoadingImage(false);
             </div>
         </div>
         </section>
-        <section><Tweetcard/></section>
+        <section>
+            {[1,1,1,1,1].map((item)=><Tweetcard/>)}
+        </section>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import HomeSection from "../HomeSection/HomeSection";
 import News from "../News/News";
 import {Route, Routes} from "react-router-dom";
 import Profile from "../Profile/Profile";
+import TweetDetails from "../TweetDetails/TweetDetails";
 
 
 const Homepage = () => {
@@ -18,6 +19,7 @@ const Homepage = () => {
                     <Route path='/' element={<HomeSection/>}></Route>
                     <Route path='/home' element={<HomeSection/>}></Route>
                     <Route path='/profile/:id' element={<Profile/>}></Route>
+                    <Route path='/tweet/:id' element={<TweetDetails/>}></Route>
                 </Routes>
 
             </Grid>

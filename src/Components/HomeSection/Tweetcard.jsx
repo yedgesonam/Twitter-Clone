@@ -43,7 +43,7 @@ const Tweetcard = () => {
                 <div className='w-full'>
                     <div className='flex justify-between items-center'>
                         <div className='flex cursor-pointer items-center space-x-2'>
-                            <span className='font-semibold'>Code with me .2m</span>
+                            <span className='font-semibold'>Sonam </span>
                             <span className='text-gray-500'>@sonamyedge</span>
                             <img className='ml-2 w-5 h-5'
                                  src='https://icon2.cleanpng.com/20190222/fku/kisspng-verified-badge-computer-icons-scalable-vector-grap-logotipo-de-icono-de-twitter-descargar-pngsvg-tran-1713906027578.webp'
@@ -74,10 +74,10 @@ const Tweetcard = () => {
                         </div>
                     </div>
                     <div className='mt-2'>
-                        <div className='cursor-pointer'>
+                        <div onClick={()=>navigate('/tweet/${3}')} className='cursor-pointer'>
                             <p className='mb-2 p-0 font-normal'>nice full stack project twitter clone</p>
                             <img className='w-[28rem] border border-gray-400 p-5 rounded-md'
-                                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlGmKtrnxElpqw3AExKXPWWBulcwjlvDJa1Q&s'
+                                 src='https://images.unsplash.com/photo-1533054840900-044450296331?q=80&w=2836&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                                  alt=''/>
                         </div>
                         <div className='py-5 flex items-center justify-between '>

@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useNavigate } from "react-router-dom";
 import { Avatar, Button } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import Tweetcard from "../HomeSection/Tweetcard";
 
 const Profile = () => {
+    const [tabValue,setTabValue]=useState("1")
     const navigate = useNavigate();
     const handleBack = () => navigate(-1);
     const handleOpenProfileModel = () => {
@@ -15,13 +22,23 @@ const Profile = () => {
     const handleFollowUser = () => {
         console.log("Follow User");
     };
+    const handleChange = (event,newValue) => {
+        setTabValue(newValue)
+        if(newValue==4){
+            console.log("Likes Tweets");
+        }
+        else if(newValue==1){
+            console.log("User Tweets");
+        }
+
+    };
 
     return (
         <div className="bg-white min-h-screen">
             {/* Header Section */}
-            <section className="z-50 flex items-center sticky top-0 bg-white shadow-md py-4 px-5">
+            <section className="bg-white z-50 flex items-center sticky top-0 bg-white shadow-md py-4 px-5">
                 <KeyboardBackspaceIcon className="cursor-pointer" onClick={handleBack}/>
-                <h1 className="text-xl font-bold opacity-90 ml-5">Code With Me</h1>
+                <h1 className="text-xl font-bold opacity-90 ml-5">Sonam</h1>
             </section>
 
             {/* Cover Image Section */}
@@ -70,7 +87,7 @@ const Profile = () => {
             <section className="mt-24 px-6">
                 <div className="flex flex-col">
                     <div className="flex items-center space-x-2">
-                        <h1 className="text-2xl font-bold">Code with me</h1>
+                        <h1 className="text-2xl font-bold">Sonam</h1>
                         {true && (
                             <img
                                 className="w-5 h-5"
@@ -115,6 +132,26 @@ const Profile = () => {
                         <span className="text-gray-500">Followers</span>
                     </div>
                 </div>
+            </section>
+            <section className='py-3'>
+                <Box sx={{ width: '100%', typography: 'body1' }}>
+                    <TabContext value={tabValue}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <TabList onChange={handleChange} aria-label="lab API tabs example">
+                                <Tab label="Tweets" value="1" />
+                                <Tab label="Replies" value="2" />
+                                <Tab label="Media" value="3" />
+                                <Tab label="Likes" value="4" />
+                            </TabList>
+                        </Box>
+                        <TabPanel value="1">
+                            {[1,1,1,1,1].map((item)=><Tweetcard/>)}
+                        </TabPanel>
+                        <TabPanel value="2">User's replies</TabPanel>
+                        <TabPanel value="3">Media</TabPanel>
+                        <TabPanel value="4">Likes</TabPanel>
+                    </TabContext>
+                </Box>
             </section>
         </div>
     );

@@ -32,7 +32,7 @@ setSelectedImage(imgUrl);
 setUpLoadingImage(false);
     }
   return (
-    <div className='py-5 text-xl font-bold opacity-90, space-y-8'>
+    <div className='py-5 text-xl font-bold opacity-90, space-y-8 '>
           <section>
               <h1>Home</h1>
           </section>

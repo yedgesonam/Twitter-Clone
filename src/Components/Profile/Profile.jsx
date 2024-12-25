@@ -11,14 +11,18 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Tweetcard from "../HomeSection/Tweetcard";
+import ProfileModel from "./ProfileModel";
 
 const Profile = () => {
     const [tabValue,setTabValue]=useState("1")
     const navigate = useNavigate();
+    const [openProfileModel,setOpenProfileModel]=useState(false);
+    const handleOpen = () => setOpenProfileModel(true);
+    const handleClose = () => setOpenProfileModel(false);
     const handleBack = () => navigate(-1);
-    const handleOpenProfileModel = () => {
-        console.log("open profile model");
-    };
+    // const handleOpenProfileModel = () => {
+    //     console.log("open profile model");
+    // };
     const handleFollowUser = () => {
         console.log("Follow User");
     };
@@ -64,7 +68,7 @@ const Profile = () => {
                 <div className="mt-5 absolute right-0 ">
                     {true ? (
                         <Button
-                            onClick={handleOpenProfileModel}
+                            onClick={handleOpen}
                             variant="contained"
                             sx={{ borderRadius: "20px" }}
                         >
@@ -152,6 +156,9 @@ const Profile = () => {
                         <TabPanel value="4">Likes</TabPanel>
                     </TabContext>
                 </Box>
+            </section>
+            <section>
+            <ProfileModel handleClose={handleClose} open={openProfileModel}/>
             </section>
         </div>
     );
